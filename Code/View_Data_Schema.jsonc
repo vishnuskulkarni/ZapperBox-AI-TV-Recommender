@@ -1,0 +1,61 @@
+{
+    "dev_id":       "Device ID string",
+    "zip_code":     "Zip code string",
+    "channels": [
+        {
+            "major":            "Integer: Major channel number",
+            "minor":            "Integer: Minor channel number",
+            "rf_channel":       "Integer: RF channel number",
+            "stream_id":        "Integer: stream ID",
+            "service_num":      "Integer: Service ID",
+            "name":             "String: Channel name or call sign",
+            "protocol":         "String: ATSC1 or ATSC3",
+            "hdr_format_src":   "String: HDR format string",
+            "ui_hidden":        "Boolean: Customer has hidden this channel",
+            "hidden":           "Boolean: Hidden channel within the RF channel",
+            "encrypted":        "Boolean: Channel is encrypted",
+            "broadband":        "Boolean: Channel is broadband IP (OTT)",
+            "audio_only":       "Boolean: Channel is audio only"
+        }//, ...
+    ],
+    "live_viewing": [
+            {
+                // These come from the "CMGR: Tuning " log lines
+                // Time/date strings will be of the form 'yyyy-mm-dd'
+                // Time/date may be better as integer seconds from the epoch?
+                "maj":          "Integer: Major channel",
+                "min":          "Integer: Minor channel",
+                "start_time":   "String: Start time/date",
+                "end_time":     "String: End time/date"
+            }//, ...
+    ],
+    "dvr_recording": [
+        {
+            // These come from "DVR: Tune channel " and
+            //                 "DVR: Start recording ID " and
+            //                 "DVR: Stop ID " log lines
+            "maj":              "Integer: Major channel",
+            "min":              "Integer: Minor channel",
+            "program_name":     "String: Program name",
+            "record_time":      "String: Start or recording time/date",
+            "end_time":         "String: End time/date"
+        }//, ...
+
+    ],
+    "dvr_viewing": [
+        // Hitting DVR button:  CMGR: Returning 315 DVR Library entries
+        // Playing a recording: DVR: Starting to play 'People Puzzler' and
+        //                      EXO: DVR Playing set to TRUE
+        // Hitting DVR while watching a recording:
+        //                      CMGR: Returning 315 DVR Library entries
+        // Stop playing recording:
+        //                      DVR: Stop playing ID 5 (People Puzzler)
+        //                      EXO: DVR Playing set to FALSE
+        {
+            "program_name":     "String: Program name",
+            "start_time":       "String: Time/date viewer started watching",
+            "end_time":         "String: Time/date viewer stopped watching"
+        }//, ...
+    ]
+}
+
